@@ -269,16 +269,16 @@ html<!DOCTYPE html>
         <p style="margin-top: 5px; font-size: 12px; opacity: 0.7;">Official Line: 09125890508</p>
     </footer>
 
-    <!-- Form Processing Script -->
+    <!-- Form Processing Script Block -->
     <script>
         document.getElementById('dentalBookingForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Stop webpage from breaking or reloading
+            // Absolute absolute stop to form transmission page reload triggers
+            event.preventDefault(); 
+            event.stopPropagation();
 
-            // 1. Gather all inputs from the form
+            // 1. Gather all raw input values
             const name = document.getElementById('patientName').value;
             const branch = document.getElementById('clinicBranch').value;
             const treatment = document.getElementById('treatmentType').value;
             const date = document.getElementById('appointmentDate').value;
             const time = document.getElementById('appointmentTime').value;
-
-            // 2. Compile into a clean, bold message block
