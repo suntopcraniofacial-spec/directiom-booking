@@ -83,13 +83,13 @@ html<!DOCTYPE html>
 
         /* Compact Booking Form Section */
         .booking-section {
-            max-width: 440px; /* Reduced overall card size width */
+            max-width: 440px; 
             margin: 20px auto 50px auto;
             padding: 0 15px;
         }
         .booking-card {
             background: white;
-            padding: 25px; /* Reduced internal spacing */
+            padding: 25px; 
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
@@ -100,7 +100,7 @@ html<!DOCTYPE html>
             font-size: 20px;
         }
         .form-group {
-            margin-bottom: 12px; /* Reduced vertical separation fields */
+            margin-bottom: 12px; 
         }
         .form-group label {
             display: block;
@@ -111,7 +111,7 @@ html<!DOCTYPE html>
         }
         .form-group input, .form-group select {
             width: 100%;
-            padding: 9px 12px; /* Slimmed down input fields padding */
+            padding: 9px 12px; 
             border: 1px solid #ccc;
             border-radius: 6px;
             font-size: 14px;
@@ -122,7 +122,7 @@ html<!DOCTYPE html>
             border-color: var(--primary);
         }
         .btn-submit {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 100%;
@@ -200,7 +200,7 @@ html<!DOCTYPE html>
     <!-- Content Headline Intro -->
     <section class="hero">
         <h1>Book Your Dental Visit</h1>
-        <p>Complete your appointment information below to send details via WhatsApp.</p>
+        <p>Complete your appointment information below to open WhatsApp instantly.</p>
     </section>
 
     <!-- Compact Booking Interface Module -->
@@ -257,13 +257,13 @@ html<!DOCTYPE html>
 
                 <!-- Submission Dispatch Button -->
                 <button type="submit" class="btn-submit">
-                    💬 Send to WhatsApp (09125890508)
+                    💬 Open WhatsApp to Book
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- Footer Copyright Layout and metadata indicators -->
+    <!-- Footer Copyright Layout -->
     <footer>
         <p>&copy; 2026 Suntop Craniofacial and Dental Clinic. All Rights Reserved.</p>
         <p style="margin-top: 5px; font-size: 12px; opacity: 0.7;">Official Line: 09125890508</p>
@@ -274,8 +274,11 @@ html<!DOCTYPE html>
         document.getElementById('dentalBookingForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Fetch current properties states
+            // Fetch current field values
             const name = document.getElementById('patientName').value;
             const branch = document.getElementById('clinicBranch').value;
             const treatment = document.getElementById('treatmentType').value;
             const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+
+            // Structural messaging string array compilation format
