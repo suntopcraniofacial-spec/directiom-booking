@@ -1,0 +1,248 @@
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suntop Craniofacial and Dental Clinic</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --success: #25D366; /* WhatsApp Green */
+        }
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135px, rgba(0,119,182,0.1) 0%, rgba(0,180,216,0.05) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 42px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Call to Action Button */
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--success);
+            color: white;
+            padding: 15px 32px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            background-color: #20ba56;
+        }
+
+        /* Features Section */
+        .services {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Locations Section */
+        .locations {
+            background-color: #fff;
+            padding: 60px 20px;
+        }
+        .location-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .location-card {
+            border: 2px solid var(--light);
+            border-radius: 10px;
+            padding: 25px;
+            background-color: var(--light);
+        }
+        .location-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .branch-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design Rules */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .nav-container { flex-direction: column; text-align: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Suntop Craniofacial & Dental</div>
+            <a href="https://wa.me." class="btn-whatsapp" style="padding: 10px 20px; font-size: 14px;" target="_blank">Book on WhatsApp</a>
+        </div>
+    </header>
+
+    <!-- Main Hero Landing -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Expert Craniofacial & Dental Care in Benin City</h1>
+            <p>Welcome to Suntop Craniofacial and Dental Clinic. Your smile and health are our top priorities. Schedule your appointment instantly via WhatsApp today.</p>
+            <a href="https://wa.me." class="btn-whatsapp" target="_blank">
+                📅 Book Appointment via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Medical Focus Areas -->
+    <section class="services">
+        <h2 class="section-title">Our Specialized Care</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Craniofacial Services</h3>
+                <p>Advanced treatment protocols tailored for jaw, facial structure, and corrective specialized procedures.</p>
+            </div>
+            <div class="card">
+                <h3>General Dentistry</h3>
+                <p>Routine dental checkups, professional deep cleanings, filling treatments, and preventative care for families.</p>
+            </div>
+            <div class="card">
+                <h3>Cosmetic Procedures</h3>
+                <p>Smile restoration plans, teeth whitening treatments, structural bonding, and advanced orthodontic care.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic Branches -->
+    <section class="locations">
+        <div class="location-container">
+            <h2 class="section-title" style="text-align: center;">Our Benin City Branches</h2>
+            <div class="location-grid">
+                
+                <!-- Muritala Muhammad Way Branch -->
+                <div class="location-card">
+                    <span class="branch-tag">Branch 1</span>
+                    <h3>Muritala Muhammad Way</h3>
+                    <p>No. 23 Muritala Muhammad Way,</p>
+                    <p>Opposite MTN Third,</p>
+                    <p>Benin City, Edo State.</p>
+                </div>
+
+                <!-- Uselu Branch -->
+                <div class="location-card">
+                    <span class="branch-tag">Branch 2</span>
+                    <h3>Uselu Branch</h3>
+                    <p>127 Uselu,</p>
+                    <p>At Success Pharmacy, Opposite NNPC,</p>
+                    <p>Benin City, Edo State.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Copyright -->
+    <footer>
+        <p>&copy; 2026 Suntop Craniofacial and Dental Clinic. All Rights Reserved.</p>
+        <p style="margin-top: 10px;">Contact Support Line: +234 912 589 0508</p>
+    </footer>
