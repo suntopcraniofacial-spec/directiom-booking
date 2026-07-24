@@ -56,7 +56,7 @@ html<!DOCTYPE html>
         .address-title {
             font-weight: bold;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
         .logo-center {
             text-align: center;
@@ -200,7 +200,7 @@ html<!DOCTYPE html>
     <!-- Content Headline Intro -->
     <section class="hero">
         <h1>Book Your Dental Visit</h1>
-        <p>Complete your appointment information below to open WhatsApp instantly.</p>
+        <p>Fill out the form below. It will open WhatsApp with your text already written and ready to send!</p>
     </section>
 
     <!-- Compact Booking Interface Module -->
@@ -257,7 +257,7 @@ html<!DOCTYPE html>
 
                 <!-- Submission Dispatch Button -->
                 <button type="submit" class="btn-submit">
-                    💬 Open WhatsApp to Book
+                    💬 Go to WhatsApp Chat
                 </button>
             </form>
         </div>
@@ -269,16 +269,16 @@ html<!DOCTYPE html>
         <p style="margin-top: 5px; font-size: 12px; opacity: 0.7;">Official Line: 09125890508</p>
     </footer>
 
-    <!-- Form Processing Routing Automation Logic Script Block -->
+    <!-- Form Processing Script -->
     <script>
         document.getElementById('dentalBookingForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Stop webpage from breaking or reloading
 
-            // Fetch current field values
+            // 1. Gather all inputs from the form
             const name = document.getElementById('patientName').value;
             const branch = document.getElementById('clinicBranch').value;
             const treatment = document.getElementById('treatmentType').value;
             const date = document.getElementById('appointmentDate').value;
             const time = document.getElementById('appointmentTime').value;
 
-            // Structural messaging string array compilation format
+            // 2. Compile into a clean, bold message block
