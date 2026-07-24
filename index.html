@@ -53,7 +53,7 @@ html<!DOCTYPE html>
         /* Hero Section */
         .hero {
             background: linear-gradient(135px, rgba(0,119,182,0.1) 0%, rgba(0,180,216,0.05) 100%);
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
         .hero-content {
@@ -71,50 +71,69 @@ html<!DOCTYPE html>
             margin-bottom: 30px;
         }
 
-        /* Call to Action Button */
-        .btn-whatsapp {
-            display: inline-flex;
+        /* Booking Form Section */
+        .booking-section {
+            max-width: 600px;
+            margin: -40px auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .booking-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .booking-card h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 14px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary);
+        }
+        .btn-submit {
+            display: flex;
             align-items: center;
+            justify-content: center;
+            width: 100%;
             background-color: var(--success);
             color: white;
-            padding: 15px 32px;
+            padding: 15px;
             font-size: 18px;
             font-weight: bold;
-            border-radius: 50px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s, background-color 0.2s;
+            transition: background-color 0.2s, transform 0.1s;
         }
-        .btn-whatsapp:hover {
-            transform: translateY(-2px);
+        .btn-submit:hover {
             background-color: #20ba56;
         }
-
-        /* Features Section */
-        .services {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 40px;
-            color: var(--primary);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .card h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
+        .btn-submit:active {
+            transform: scale(0.98);
         }
 
         /* Locations Section */
@@ -166,9 +185,10 @@ html<!DOCTYPE html>
             opacity: 0.8;
         }
 
-        /* Responsive Design Rules */
+        /* Responsive Layout Rules */
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
+            .booking-card { padding: 25px; }
             .nav-container { flex-direction: column; text-align: center; gap: 10px; }
         }
     </style>
@@ -179,47 +199,84 @@ html<!DOCTYPE html>
     <header>
         <div class="nav-container">
             <div class="logo">Suntop Craniofacial & Dental</div>
-            <a href="https://wa.me." class="btn-whatsapp" style="padding: 10px 20px; font-size: 14px;" target="_blank">Book on WhatsApp</a>
         </div>
     </header>
 
-    <!-- Main Hero Landing -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Expert Craniofacial & Dental Care in Benin City</h1>
-            <p>Welcome to Suntop Craniofacial and Dental Clinic. Your smile and health are our top priorities. Schedule your appointment instantly via WhatsApp today.</p>
-            <a href="https://wa.me." class="btn-whatsapp" target="_blank">
-                📅 Book Appointment via WhatsApp
-            </a>
+            <h1>Expert Craniofacial & Dental Care</h1>
+            <p>Fill out the quick form below to schedule an appointment seamlessly through WhatsApp.</p>
         </div>
     </section>
 
-    <!-- Medical Focus Areas -->
-    <section class="services">
-        <h2 class="section-title">Our Specialized Care</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Craniofacial Services</h3>
-                <p>Advanced treatment protocols tailored for jaw, facial structure, and corrective specialized procedures.</p>
-            </div>
-            <div class="card">
-                <h3>General Dentistry</h3>
-                <p>Routine dental checkups, professional deep cleanings, filling treatments, and preventative care for families.</p>
-            </div>
-            <div class="card">
-                <h3>Cosmetic Procedures</h3>
-                <p>Smile restoration plans, teeth whitening treatments, structural bonding, and advanced orthodontic care.</p>
-            </div>
+    <!-- Appointment Form Section -->
+    <section class="booking-section">
+        <div class="booking-card">
+            <h2>Book Appointment</h2>
+            <form id="dentalBookingForm">
+                
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="patientName">Patient Full Name</label>
+                    <input type="text" id="patientName" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Branch Selection -->
+                <div class="form-group">
+                    <label for="clinicBranch">Preferred Clinic Branch</label>
+                    <select id="clinicBranch" required>
+                        <option value="" disabled selected>Select a branch</option>
+                        <option value="23 Muritala Muhammad Way (Opp. MTN Third)">23 Muritala Muhammad Way (Opp. MTN Third)</option>
+                        <option value="127 Uselu (Success Pharmacy, Opp. NNPC)">127 Uselu (Success Pharmacy, Opp. NNPC)</option>
+                    </select>
+                </div>
+
+                <!-- Specific Treatment Dropdown Menu -->
+                <div class="form-group">
+                    <label for="treatmentType">Required Treatment / Service</label>
+                    <select id="treatmentType" required>
+                        <option value="" disabled selected>Select a treatment</option>
+                        <option value="Scaling and Polishing">Scaling and Polishing</option>
+                        <option value="Teeth Whitening">Teeth Whitening</option>
+                        <option value="Dental Filling">Dental Filling</option>
+                        <option value="Root Canal Treatment (RCT)">Root Canal Treatment (RCT)</option>
+                        <option value="Simple Extraction">Simple Extraction</option>
+                        <option value="Surgical Extraction">Surgical Extraction</option>
+                        <option value="Dental Crowns">Dental Crowns</option>
+                        <option value="Dental Implant">Dental Implant</option>
+                        <option value="Denture">Denture</option>
+                        <option value="Maxillofacial Consultation">Maxillofacial Consultation</option>
+                    </select>
+                </div>
+
+                <!-- Appointment Date -->
+                <div class="form-group">
+                    <label for="appointmentDate">Preferred Date</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+
+                <!-- Appointment Time -->
+                <div class="form-group">
+                    <label for="appointmentTime">Preferred Time Slot</label>
+                    <input type="time" id="appointmentTime" required>
+                </div>
+
+                <!-- Action Button -->
+                <button type="submit" class="btn-submit">
+                    💬 Send Details via WhatsApp
+                </button>
+            </form>
         </div>
     </section>
 
-    <!-- Clinic Branches -->
+    <!-- Clinic Branches Info Display -->
     <section class="locations">
         <div class="location-container">
-            <h2 class="section-title" style="text-align: center;">Our Benin City Branches</h2>
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 20px;">Our Benin City Locations</h2>
             <div class="location-grid">
                 
-                <!-- Muritala Muhammad Way Branch -->
+                <!-- Branch 1 Details -->
                 <div class="location-card">
                     <span class="branch-tag">Branch 1</span>
                     <h3>Muritala Muhammad Way</h3>
@@ -228,7 +285,7 @@ html<!DOCTYPE html>
                     <p>Benin City, Edo State.</p>
                 </div>
 
-                <!-- Uselu Branch -->
+                <!-- Branch 2 Details -->
                 <div class="location-card">
                     <span class="branch-tag">Branch 2</span>
                     <h3>Uselu Branch</h3>
@@ -236,16 +293,3 @@ html<!DOCTYPE html>
                     <p>At Success Pharmacy, Opposite NNPC,</p>
                     <p>Benin City, Edo State.</p>
                 </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Copyright -->
-    <footer>
-        <p>&copy; 2026 Suntop Craniofacial and Dental Clinic. All Rights Reserved.</p>
-        <p style="margin-top: 10px;">Contact Support Line: +234 912 589 0508</p>
-    </footer>
-
-</body>
-</html>
