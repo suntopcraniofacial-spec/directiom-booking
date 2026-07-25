@@ -183,7 +183,6 @@ html<!DOCTYPE html>
                 Opposite MTN Third, Benin City.
             </div>
 
-            
             <div class="logo-center">
                 Suntop Craniofacial<br>& Dental Clinic
             </div>
@@ -243,42 +242,39 @@ html<!DOCTYPE html>
                     </select>
                 </div>
 
-                <!-- Appointment Date Selection field -->
-                <div class="form-group">
-                    <label for="appointmentDate">Preferred Date</label>
-                    <input type="date" id="appointmentDate" required>
-                </div>
-
-                <!-- Appointment Hour Range Slot -->
-                <div class="form-group">
-                    <label for="appointmentTime">Preferred Time</label>
-                    <input type="time" id="appointmentTime" required>
-                </div>
-
-                <!-- Submission Dispatch Button -->
-                <button type="submit" class="btn-submit">
-                    💬 Go to WhatsApp Chat
-                </button>
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit">Book via WhatsApp</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer Copyright Layout -->
+    <!-- Footer Module -->
     <footer>
         <p>&copy; 2026 Suntop Craniofacial and Dental Clinic. All Rights Reserved.</p>
-        <p style="margin-top: 5px; font-size: 12px; opacity: 0.7;">Official Line: 09125890508</p>
     </footer>
 
-    <!-- Form Processing Script Block -->
+    <!-- JAVASCRIPT LOGIC FOR WHATSAPP REDIRECT -->
     <script>
         document.getElementById('dentalBookingForm').addEventListener('submit', function(event) {
-            // Absolute absolute stop to form transmission page reload triggers
-            event.preventDefault(); 
-            event.stopPropagation();
+            // 1. Prevent default form reload behavior
+            event.preventDefault();
 
-            // 1. Gather all raw input values
+            // 2. Define clinic WhatsApp number (Using Nigeria's code +234 as example)
+            // CRITICAL: Replace '2348000000000' with your actual business WhatsApp phone number.
+            // DO NOT include any spaces, plus signs (+), or dashes.
+            const whatsappNumber = "2348000000000"; 
+
+            // 3. Extract user inputs
             const name = document.getElementById('patientName').value;
             const branch = document.getElementById('clinicBranch').value;
             const treatment = document.getElementById('treatmentType').value;
-            const date = document.getElementById('appointmentDate').value;
-            const time = document.getElementById('appointmentTime').value;
+
+            // 4. Draft clean message layout (%0A creates a clean line break)
+            const textMessage = "Hello Suntop Dental Clinic,%0A%0A" +
+                                "I would like to book an appointment:%0A" +
+                                "*Patient Name:* " + encodeURIComponent(name) + "%0A" +
+                                "*Preferred Branch:* " + encodeURIComponent(branch) + "%0A" +
+                                "*Requested Service:* " + encodeURIComponent(treatment);
+
+            // 5. Generate and execute target API redirect link
+            const finalUrl = "https://whatsapp.com" + whatsappNumber + "&text=" + textMessage;
