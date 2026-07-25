@@ -247,6 +247,7 @@ html<!DOCTYPE html>
             </form>
         </div>
     </section>
+    
 
     <!-- Footer Module -->
     <footer>
@@ -278,3 +279,26 @@ html<!DOCTYPE html>
 
             // 5. Generate and execute target API redirect link
             const finalUrl = "https://whatsapp.com" + whatsappNumber + "&text=" + textMessage;
+html<form id="dentalBookingForm">
+  <h2>Book a Dental Appointment</h2>
+  
+  <label for="fullName">Full Name:</label>
+  <input type="text" id="fullName" required placeholder="John Doe">
+
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="tel" id="phoneNumber" required placeholder="+234...">
+
+  <label for="service">Select Service:</label>
+  <select id="service" required>
+    <option value="">-- Choose a Service --</option>
+    <option value="Dental Checkup">Dental Checkup</option>
+    <option value="Teeth Whitening">Teeth Whitening</option>
+    <option value="Tooth Extraction">Tooth Extraction</option>
+    <option value="Root Canal">Root Canal Treatment</option>
+  </select>
+
+  <label for="appointmentDate">Preferred Date & Time:</label>
+  <input type="datetime-local" id="appointmentDate" required>
+
+  <button type="submit">Book via WhatsApp</button>
+</form>
